@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather App</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
 
-    <!-- Main CSS File Link -->
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body></body>
+  <!-- Favicon Link -->
+  <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Google Font Link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+
+  <!-- Main CSS File Link -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="images/logo.png" alt="logo">
+      </a>
+
+      <div class="search-view">
+        <div class="search-wrapper">
+          <input type="search" name="search" placeholder="도시명 검색..." class="search-field">
+
+          <span class="m-icon">search</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button class="icon-btn has-state">
+          <span class="m-icon icon">search</span>
+        </button>
+
+        <a href="#" class="btn-primary has-state">
+          <span class="m-icon">my_location</span>
+        </a>
+      </div>
+    </div>
+  </header>
+</body>
 </html>
