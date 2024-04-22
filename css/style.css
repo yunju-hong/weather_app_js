@@ -474,34 +474,34 @@ article.container::before {
 /*-----------------------------------*\
   #HIGHTLIGHTS
 \*-----------------------------------*/
-.hightlghts .m-icon {
+.hightlights .m-icon {
   font-size: 3.2rem;
 }
 
-.hightlghts .hightlight-list .title-3 {
+.hightlights .hightlight-list .title-3 {
   color: var(--on-surface-variant);
   margin-bottom: 20px;
 }
 
-.hightlghts .card-sm {
+.hightlights .card-sm {
   background: var(--black-alpha-10);
   position: relative;
 }
 
-.hightlghts .hightlight-card :is(.wrapper, .card-list, .card-item) {
+.hightlights .hightlight-card :is(.wrapper, .card-list, .card-item) {
   display: flex;
   align-items: center;
 }
 
-.hightlghts .wrapper{
-  justify-content: space-between
-  gap:16px;
+.hightlights .wrapper {
+  justify-content: space-between;
+  gap: 16px;
 }
 
-.hightlghts .card-list{
-  flex-wrap:wrap;
+.hightlights .card-list {
+  flex-wrap: wrap;
 }
 
-.hightlghts .card-item{
+.hightlights .card-item {
   width: 50%;
 }
