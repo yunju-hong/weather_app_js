@@ -322,6 +322,7 @@ body {
 .title-2 {
   font-size: var(--title-2);
   margin-block-end: 12px;
+  /* margin inline reference: https://www.w3schools.com/cssref/css_pr_padding-inline.php */
 }
 
 .title-3 {
@@ -354,9 +355,87 @@ body {
   #HEADER
 \*-----------------------------------*/
 .search-view {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--surface);
+  color: var(--on-surface);
+  z-index: 999;
+}
+
+.search-wrapper {
+  position: relative;
+  border-bottom: 1px solid var(--outline);
+}
+
+.search-wrapper::before {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  right: 16px;
+  border: 3px solid var(--on-surface-variant);
+  top: 50%;
+  transform: translateY(-50%);
+  border-top-color: transparent;
+  border-radius: var(--radius-circle);
+  animation: loading 0.8s linear infinite;
   display: none;
 }
 
+@keyframes loading {
+  0% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+.search-wrapper > .m-icon {
+  display: none;
+}
+
+.search-wrapper .search-field {
+  height: 80px;
+  line-height: 80px;
+  padding-inline: 56px 16px;
+  outline: none;
+}
+
+.search-wrapper .icon-btn {
+  background: transparent;
+  box-shadow: none;
+}
+
+.search-wrapper .leading-icon {
+  position: absolute;
+  top: 50%;
+  left: 28px;
+  transform: translate(-50%, -50%);
+}
+
+.search-view .view-list {
+  padding: 8px 0 16px;
+}
+
+.search-view .view-item {
+  position: relative;
+  height: 56px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+  padding-inline: 16px 24px;
+}
+
+.search-view .view-item .item-link {
+  position: absolute;
+  inset: 0;
+  box-shadow: none;
+}
 .header .btn-primary {
   padding-inline: 12px;
 }
@@ -379,7 +458,7 @@ body {
 main {
   height: calc(100vh - 80px);
   height: calc(100svh - 80px);
-  /* svh 참조 https://abcdqbbq.tistory.com/104 */
+  /* svh 참조 : https://abcdqbbq.tistory.com/104 */
   overflow: hidden;
 }
 
@@ -393,7 +472,7 @@ article.container {
   gap: 20px;
 }
 
-article.container::before {
+/* article.container::before {
   content: '';
   position: fixed;
   bottom: 0;
@@ -402,7 +481,7 @@ article.container::before {
   height: 40px;
   background-image: var(--gradient-1);
   z-index: 1;
-}
+} */
 
 /*-----------------------------------*\
   #CURRENT WEATHER
@@ -413,12 +492,13 @@ article.container::before {
   align-items: center;
   margin: 12px 0;
 }
+
 .current-weather-card .weather-icon {
   margin: auto;
 }
 
 .current-weather-card .meta-list {
-  border-top: solid var(--outline);
+  border-top: 1px solid var(--outline);
   margin-top: 16px;
   padding-top: 16px;
   display: flex;
@@ -431,8 +511,9 @@ article.container::before {
   gap: 8px;
   align-items: center;
 }
+
 /* .current-weather-card .meta-item:not(:last-child){
-  margin-bottom: 12px;
+  margin-bottom:12px;
 } */
 
 .current-weather-card .meta-text {
@@ -472,36 +553,136 @@ article.container::before {
 }
 
 /*-----------------------------------*\
-  #HIGHTLIGHTS
+  #HIGHLIGHTS
 \*-----------------------------------*/
-.hightlights .m-icon {
+.highlights .m-icon {
   font-size: 3.2rem;
 }
 
-.hightlights .hightlight-list .title-3 {
+.highlights .highlight-list .title-3 {
   color: var(--on-surface-variant);
   margin-bottom: 20px;
 }
 
-.hightlights .card-sm {
+.highlights .card-sm {
   background: var(--black-alpha-10);
   position: relative;
+  margin-bottom: 20px;
 }
 
-.hightlights .hightlight-card :is(.wrapper, .card-list, .card-item) {
+.highlights .card-sm:last-child {
+  margin-bottom: 0;
+}
+
+.highlights .highlight-card :is(.wrapper, .card-list, .card-item) {
   display: flex;
   align-items: center;
 }
 
-.hightlights .wrapper {
+.highlights .wrapper {
   justify-content: space-between;
   gap: 16px;
 }
 
-.hightlights .card-list {
+.highlights .card-list {
   flex-wrap: wrap;
 }
 
-.hightlights .card-item {
+.highlights .card-item {
   width: 50%;
+  justify-content: flex-end;
+  gap: 4pt;
+}
+
+.highlights .label-1 {
+  color: var(--on-surface-variant);
+}
+
+.highlights .badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 2px 12px;
+  border-radius: var(--radius-pill);
+  font-weight: var(--weight-semiBold);
+  cursor: help;
+}
+
+.highlights .badge.aqi-1 {
+  background: var(--bg-aqi-1);
+  color: var(--on-bg-aqi-1);
+}
+
+.highlights .badge.aqi-2 {
+  background: var(--bg-aqi-2);
+  color: var(--on-bg-aqi-2);
+}
+
+.highlights .badge.aqi-3 {
+  background: var(--bg-aqi-3);
+  color: var(--on-bg-aqi-3);
+}
+
+.highlights .badge.aqi-4 {
+  background: var(--bg-aqi-4);
+  color: var(--on-bg-aqi-4);
+}
+
+.highlight-card.two .card-item {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.highlight-card.two .label-1 {
+  margin-bottom: 4px;
+}
+
+/*-----------------------------------*\
+  #HOURLY FORECAST
+\*-----------------------------------*/
+.slider-container {
+  overflow-x: auto;
+}
+
+.slider-list {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.slider-item {
+  min-width: 110px;
+  /* flex: 1 1 100%; */
+  flex-shrink: 0;
+}
+
+.slider-card {
+  text-align: center;
+}
+
+.slider-card .weather-icon {
+  margin: 12px auto;
+}
+
+/*-----------------------------------*\
+  #FOOTER
+\*-----------------------------------*/
+.footer,
+.footer .body-3:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  color: var(--on-surface-variant);
+  text-align: center;
+  gap: 12px 24px;
+  margin: 28px 0;
+}
+
+.footer .body-3:last-child {
+  gap: 6px;
 }
