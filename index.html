@@ -17,9 +17,11 @@
     />
 
     <!-- Main CSS File Link -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css"/>
 
-    <!-- add test code -->
+    <!-- js module link -->
+    <script src="./js/app.js" type="module"></script>
+    <script src="./js/main.js" type="module"></script>
   </head>
   <body>
     <!-- Header -->
@@ -29,7 +31,7 @@
           <img src="images/logo.png" alt="logo" />
         </a>
 
-        <div class="search-view">
+        <div class="search-view" data-search-view>
           <div class="search-wrapper">
             <input
               type="search"
@@ -40,7 +42,7 @@
 
             <span class="m-icon">search</span>
 
-            <button class="icon-btn leading-icon has-state">
+            <button class="icon-btn leading-icon has-state" data-search-toggler>
               <span class="m-icon">arrow_back</span>
             </button>
           </div>
@@ -60,7 +62,7 @@
         </div>
 
         <div class="header-actions">
-          <button class="icon-btn has-state">
+          <button class="icon-btn has-state" data-search-toggler>
             <span class="m-icon icon">search</span>
           </button>
 
