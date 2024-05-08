@@ -413,6 +413,11 @@ body {
   }
 }
 
+/* search-wrapper의 자식 태그 중에서 searching 이라는 클래스를 가질때 before의 속성 변환 */
+.search-wrapper:has(.searching)::before {
+  display: block;
+}
+
 .search-wrapper > .m-icon {
   display: none;
 }

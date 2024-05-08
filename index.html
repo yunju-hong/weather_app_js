@@ -21,6 +21,8 @@
 
     <!-- js module link -->
     <script src="./js/api.js" type="module"></script>
+    <script src="./js/route.js" type="module"></script>
+    <script src="./js/module.js" type="module"></script>
     <script src="./js/app.js" type="module"></script>
     <script src="./js/main.js" type="module"></script>
   </head>
@@ -38,8 +40,7 @@
               type="search"
               name="search"
               placeholder="도시명 검색..."
-              class="search-field"
-            />
+              class="search-field" data-search-field>
 
             <span class="m-icon">search</span>
 
@@ -48,17 +49,7 @@
             </button>
           </div>
 
-          <div class="search-result">
-            <ul class="view-list">
-              <li class="view-item">
-                <span class="m-icon">location_on</span>
-                <div>
-                  <p class="item-title">Mapogu</p>
-                  <p class="label-2">Seoul, Korea</p>
-                </div>
-                <a href="#" class="item-link has-state"></a>
-              </li>
-            </ul>
+          <div class="search-result" data-search-result>
           </div>
         </div>
 
