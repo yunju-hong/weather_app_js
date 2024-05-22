@@ -4,7 +4,7 @@ import { url, fetchData } from './api.js';
  *
  * @param {NodeList} elmts selected elements from HTML to add events
  * @param {string} event event type e.g. 'click', 'mouseenter'...
- * @param {Function} callback function to be executed when event is triggered
+ * @param {Function} callback callback function to be executed when event is triggered
  */
 
 export function eventOnElmts(elmts, event, callback) {
